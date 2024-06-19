@@ -1,0 +1,95 @@
+<html>
+<head>
+	<title>Lain</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+	<style>
+		body {
+			background-color: #000000;
+			background-image: url("https://i.pinimg.com/originals/d8/60/9b/d8609ba6c7e22ec159dcd7be53fab9ae.gif");
+			background-size: cover;
+			background-repeat: no-repeat;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		
+		.lain-font {
+			font-family: "Special Elite", system-ui;
+			font-weight: 400;
+			font-style: normal;
+		}
+		
+		.lain {
+			max-width: 50%; max-height: 50%;
+		}
+		
+		.container {
+			flex-direction: column;
+			display: flex;
+			justify-content: center;
+			align-items: center; 
+			height: 100vh;
+		}
+
+		.content {
+			
+		}
+		
+		.overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 1); /* Siyah ekran için burada rgba kullanıyoruz, son rakam renk şeffaflığıdır */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: white;
+			font-size: 24px;
+			cursor: pointer; /* Tıklanabilir bir imleç göstermek için */
+		}
+	</style>
+</head>
+<body>
+	<div class="overlay" onclick="removeOverlay()">Click to continue</div>
+	<div class="container">
+		<audio id="myAudio" src="https://github.com/furkantest1/lain/raw/main/music.mp3" autoplay></audio>
+		<div class="content">
+			<center>
+				<h1 class="lain-font" style="color: #FFFFFF;" id="text1">Lain</h1>
+			</center>
+		</div>
+		<div class="content">
+			<center>
+				<img src="https://i.redd.it/biswrrd9jsv81.gif" alt="lain" class="lain">
+			</center>
+		</div>
+		<div class="content">
+			<center>
+				<h1 class="lain-font" style="color: #FFFFFF;" id="text2">Lain</h1>
+			</center>
+		</div>
+	</div>
+</body>
+<script>
+	const list1 = ["No matter where you are, everyone is always connected.", "Let's all love Lain", "If you're not remembered,", "I promise you I'll always be right here."];
+	const list2 = ["", "Let's all love Lain", "then you never existed", "I'm right next to you, forever."];
+	
+	const index = Math.floor(Math.random() * list1.length);
+	
+	document.getElementById("text1").innerHTML = list1[index];
+	document.getElementById("text2").innerHTML = list2[index];
+
+	function removeOverlay() {
+		var overlay = document.querySelector('.overlay');
+		overlay.style.display = 'none'; // Siyah ekranı kaldır
+		document.querySelector('.content').style.display = 'block'; // Gerçek içeriği göster
+		var audio = document.getElementById("myAudio");
+		audio.play();
+  }
+
+</script>
+</html>
